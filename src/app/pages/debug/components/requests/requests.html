@@ -1,0 +1,68 @@
+
+
+<div class="container-fluid" id="search-form">
+  <div class="row">
+    <div  class="col-sm-5">
+    </div>
+    <div class="col-sm-3">
+      <input class="form-control" type="datetime-local" [value]="startTime | dateTime " id="startDate">
+    </div>
+    <div class="col-sm-3">
+      <input class="form-control" type="datetime-local" [value]="endTime | dateTime " id="endDate">
+    </div>
+    <div class="col-sm-1">
+      <button class="btn btn-primary" type="submit">查找</button>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="horizontal-scroll">
+  <table class="table table-hover log-font">
+    <thead>
+      <tr class="black-muted-bg">
+        <th>时间</th>
+        <th class="align-center">处理时间</th>
+        <th class="align-center">ip</th>
+        <th class="align-left">url</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="no-top-border" *ngFor="let request of requests">
+        <td>{{request.time}}</td>
+        <td class="align-center">{{request.duration}}ms</td>
+        <td class="align-center">{{request.ip}}</td>
+        <td class="align-left">{{request.url}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<pagination [pagination]="pagination" (clickPageEvent)="clickPage($event)"></pagination>
+
+<!--
+<nav aria-label="...">
+  <ul class="pagination">
+
+    <li class="page-item disabled " [class.disabled]="isFirstPage()">
+      <a class="page-link" (click)="clickPrevPage()" tabindex="-1" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+
+    <li class="page-item" [class.active]='page == currentPage' *ngFor="let page of pages">
+      <a class="page-link" (click)="clickPage($event.target.text)" >{{page}}</a>
+      <span class="sr-only" *ngIf="page == currentPage">(current)</span>
+    </li>
+
+
+    <li class="page-item" [class.disabled]="isLastPage()">
+      <a class="page-link" (click)="clickNextPage()" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+  </ul>
+</nav> -->

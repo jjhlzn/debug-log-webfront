@@ -1,0 +1,16 @@
+.align-center {
+  text-align: center;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.log-font {
+  font-size: 12px;
+  font-weight: lighter;;
+}
+
+#search-form {
+  margin-bottom: 5px;
+}
